@@ -19,7 +19,8 @@ class Flipkart(object):
             'os'                :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[1]/div[4]/ul/li[3]",
             'hdd'               :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[1]/div[4]/ul/li[4]",
             'display'           :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[1]/div[4]/ul/li[5]",
-            'warranty'          :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[1]/div[4]/ul/li[6]",}
+            'warranty'          :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[1]/div[4]/ul/li[6]",
+            'price'             :   "//*[@id='container']/div/div[2]/div[2]/div/div[2]/div[3]/div[{index}]/a/div[2]/div[2]/div[1]/div/div[1]",}
     
     def Launch(self):
         driver.maximize_window()
@@ -48,6 +49,7 @@ class Flipkart(object):
                 laptop_details[laptop_name]['4'] = driver.find_element_by_xpath(self.xpaths['hdd'].format(index=items)).text
                 laptop_details[laptop_name]['5'] = driver.find_element_by_xpath(self.xpaths['display'].format(index=items)).text
                 laptop_details[laptop_name]['6'] = driver.find_element_by_xpath(self.xpaths['warranty'].format(index=items)).text
+                laptop_details[laptop_name]['7'] = driver.find_element_by_xpath(self.xpaths['price'].format(index=items)).text
             except NoSuchElementException:
                 pass
             
